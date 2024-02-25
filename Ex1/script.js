@@ -1,25 +1,31 @@
 // script.js
 
-// Função para atualizar o nome do usuário dinamicamente
 function atualizarNomeUsuario() {
-    // Seleciona o elemento pelo ID
     var elementoNomeUsuario = document.getElementById("nomeUsuario");
-  
-    // Verifica se o elemento foi encontrado
     if (elementoNomeUsuario) {
-      // Atualiza o conteúdo do elemento
       elementoNomeUsuario.textContent = "Laura Patricia Quiroz - Desenvolvedora";
     }
   }
   
-  // Chamando a função ao carregar a página
+  function atualizarEmail() {
+    var novoEmail = document.getElementById("novoEmail").value;
+    var elementoEmailUsuario = document.getElementById("emailUsuario");
+  
+    // Simples validação de e-mail
+    if (validarEmail(novoEmail)) {
+      elementoEmailUsuario.textContent = novoEmail;
+      alert("Email atualizado com sucesso!");
+    } else {
+      alert("Por favor, insira um email válido.");
+    }
+  }
+  
+  function validarEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+  
   window.onload = function () {
-    // Chama a função para atualizar o nome do usuário
     atualizarNomeUsuario();
   };
-function exibirMensagemBoasVindas() {
-    alert("Bem-vindo(a), Laura Patricia Quiroz!");
-}
-
-// Chamando a função ao carregar a página (opcional)
-window.onload = exibirMensagemBoasVindas;
+  
